@@ -1,7 +1,5 @@
 ---
-import '@fontsource/orbitron';
-import { Image } from 'astro:assets';
-
+import '../CSS/global.css'
 ---
 
 <html lang="en">
@@ -10,17 +8,45 @@ import { Image } from 'astro:assets';
 		<meta name="viewport" content="width=device-width" />
 		<title>Project Website</title>
 	</head>
+	
 	<header>
-		
-		<video>
-			<source src="/src/assets/cyberpunk.mp4" type="video/mp4">
-		</video>
-
+		<div class="video-header">
+			<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+				<source src="/src/assets/cyberpunk.mp4" type="video/mp4">
+			</video>
+			<div class="overlay-text">
+				<h1 id="year">0</h1>
+	  		</div>
+		</div>
 	</header>
-	<body>
 
-		<img src="/src/assets/newyou.png" alt="New You">
+	<body>
+		<script>
+			window.onload = function() {
+			  let counter = 2000; // Start year. You can modify this as appropriate.
+			  const endYear = 2052;
+			  const intervalTime = 100; // 100ms interval time. You can adjust as necessary.
+			
+			  const yearEl = document.getElementById('year');
+			
+			  let timer = setInterval(function() {
+				counter++;
+				yearEl.textContent = counter;
+			
+				// Add fade-in class to make the text visible
+				if (counter === 2001) {
+				  yearEl.parentElement.classList.add('fade-in');
+				}
+			
+				// Stop the timer at 2052
+				if(counter === endYear) {
+				  clearInterval(timer);
+				}
+			  }, intervalTime);
+			};
+			</script>
 	</body>
+</html>
 
 	
 
