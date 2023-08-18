@@ -3,49 +3,72 @@ import '../CSS/global.css'
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Project Website</title>
-	</head>
-	
-	<header>
-		<div class="video-header">
-			<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-				<source src="/src/assets/cyberpunk.mp4" type="video/mp4">
-			</video>
-			<div class="overlay-text">
-				<h1 id="year">0</h1>
-	  		</div>
-		</div>
-	</header>
 
-	<body>
-		<script>
-			window.onload = function() {
-			  let counter = 2000; // Start year. You can modify this as appropriate.
-			  const endYear = 2052;
-			  const intervalTime = 100; // 100ms interval time. You can adjust as necessary.
-			
-			  const yearEl = document.getElementById('year');
-			
-			  let timer = setInterval(function() {
-				counter++;
-				yearEl.textContent = counter;
-			
-				// Add fade-in class to make the text visible
-				if (counter === 2001) {
-				  yearEl.parentElement.classList.add('fade-in');
-				}
-			
-				// Stop the timer at 2052
-				if(counter === endYear) {
-				  clearInterval(timer);
-				}
-			  }, intervalTime);
-			};
-			</script>
-	</body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Project Website</title>
+  <link rel="stylesheet" href="../CSS/global.css">
+</head>
+
+<body>
+  <div class="video-header">
+    <video playsinline autoplay muted loop>
+      <source src="/src/assets/cyberpunk.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-text">
+      <h1 id="year">0</h1>
+    </div>
+  </div>
+
+	<div class="new-you">
+		<img src="src/assets/newyou.png" alt="The New You"> 
+		<p>The<br>New<br>You</p>
+	</div>
+
+	<div class="byd">
+		<img src="src/assets/cyborgtorso.png" alt="torso">
+		<img src="src/assets/cyborghand.png" alt="hand">
+		<img src="src/assets/cyborghead.png" alt="head">
+	</div>
+	<div class="byd-text"><p>Build Your Dream</p></div>
+
+	<div class="never">
+		<p>Never<br>To Early<br>To Start</p>
+		<img src="src/assets/cyborgbaby.png" alt="torso">
+	</div>
+
+	<div class="lifetime">
+		<img src="src/assets/cyberpunksunset.png" alt="The New You">
+		<div class="lifetime-text">
+			<p>With Low Interest You Have A Lifetime To Pay</p>
+		</div>
+	</div>
+
+  <script>
+    window.onload = function() {
+      let counter = 2000; 
+      const endYear = 2052; 
+      const intervalTime = 100;  
+
+      const yearEl = document.getElementById('year');
+
+      let timer = setInterval(function() {
+        counter++;
+        yearEl.textContent = counter;
+
+        if (counter === 2001) {
+          yearEl.parentElement.classList.add('fade-in');
+        }
+
+        if (counter === endYear) {
+          clearInterval(timer);
+        }
+      }, intervalTime);
+    };
+  </script>
+</body>
+
 </html>
 
 	
